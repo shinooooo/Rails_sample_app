@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    default_url_options :host => "example.com"
   get 'sessions/new'
 
   root 'static_pages#home'
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
+  resources :account_activations, only: [:edit]
 end
